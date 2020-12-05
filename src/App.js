@@ -5,9 +5,11 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        hello workd
+
+        <h2>React Playground</h2>
+
       </div>
-      <h2>React Playground</h2>
+
     </div>
   );
 }
