@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Accordion from './components/Accordion'
 import AppHeader from './components/AppHeader'
+import SearchBar from './components/search/Search'
+import SearchList from './components/search/SearchList'
 
 const accordionItems = [
 	{
@@ -22,12 +24,15 @@ const accordionItems = [
 ]
 
 function App() {
+	const [onSearchText, setOnSearchText] = useState('')
 	return (
 		<div className="App">
 			<div className="container">
 				<h2>React Playground</h2>
 				<AppHeader />
-				<Accordion items={accordionItems} />
+				{/* <Accordion items={accordionItems} /> */}
+				<SearchBar searchText={(val) => setOnSearchText(val)} />
+				<SearchList searchQuery={onSearchText} />
 			</div>
 		</div>
 	)
