@@ -4,6 +4,7 @@ import Accordion from './components/Accordion'
 import AppHeader from './components/AppHeader'
 import SearchBar from './components/search/Search'
 import SearchList from './components/search/SearchList'
+import DropDownList from './components/DropDownList'
 
 const accordionItems = [
 	{
@@ -23,16 +24,22 @@ const accordionItems = [
 	},
 ]
 
+const options = [
+	{ label: 'the color green', value: 'green' },
+	{ label: 'the color red', value: 'red' },
+	{ label: 'the color yellow', value: 'yellow' },
+]
+
 function App() {
 	const [onSearchText, setOnSearchText] = useState('')
 	return (
 		<div className="App">
 			<div className="container">
-				<h2>React Playground</h2>
-				<AppHeader />
+				{/* <AppHeader /> */}
 				{/* <Accordion items={accordionItems} /> */}
-				<SearchBar searchText={(val) => setOnSearchText(val)} />
-				<SearchList searchQuery={onSearchText} />
+				{/* <SearchBar searchText={(val) => setOnSearchText(val)} />
+				<SearchList searchQuery={onSearchText} /> */}
+				<DropDownList optionList={options} />
 			</div>
 		</div>
 	)

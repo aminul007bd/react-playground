@@ -4,6 +4,16 @@ import axios from 'axios'
 function SearchList({ searchQuery }) {
 	const baseUrl = 'https://en.wikipedia.org/w/api.php'
 	const [results, setResults] = useState([])
+	const [debouncTearm, setDebouncTerm] = useState(searchQuery)
+
+	useEffect(() => {
+		const timerId = setTimeout(() => {
+			setDebouncTerm(searchQuery)
+		}, 1000)
+		return () => {
+			clearTimeout(timerId)
+		}
+	})
 	useEffect(() => {
 		const searchWiki = async () => {
 			const { data } = await axios.get(baseUrl, {
@@ -12,21 +22,22 @@ function SearchList({ searchQuery }) {
 					list: 'search',
 					format: 'json',
 					origin: '*',
-					srsearch: searchQuery,
+					srsearch: debouncTearm,
 				},
 			})
 
 			setResults(data.query?.search)
 		}
 		searchWiki()
-	}, [searchQuery])
+	}, [debouncTearm])
+
 	const searchResult = results?.map((result) => {
 		return (
 			<li
 				key={result.pageid}
 				className="list-group-item d-flex justify-content-between align-items-center"
 			>
-				<p>{result.title}</p>
+				<h5>{result.title}</h5>
 				<span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
 				{/* <div className="image-parent">
 					<img
@@ -35,6 +46,9 @@ function SearchList({ searchQuery }) {
 						alt={result.title}
 					/>
 				</div> */}
+				<a href={`https://en.wikipedia.org?curid=${result.pageid}`} target="_blank">
+					GO
+				</a>
 			</li>
 		)
 	})
