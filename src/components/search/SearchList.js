@@ -22,8 +22,8 @@ function SearchList({ searchQuery }) {
 					list: 'search',
 					format: 'json',
 					origin: '*',
-					srsearch: debouncTearm,
-				},
+					srsearch: debouncTearm
+				}
 			})
 
 			setResults(data.query?.search)

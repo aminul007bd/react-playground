@@ -6,7 +6,7 @@ export default function AppNavbar() {
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid">
 					<a className="navbar-brand" href="#">
-						Navbar
+						Pantheon
 					</a>
 					<button
 						className="navbar-toggler"
@@ -22,13 +22,8 @@ export default function AppNavbar() {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 							<li className="nav-item">
-								<a className="nav-link active" aria-current="page" href="#">
-									Home
-								</a>
-							</li>
-							<li className="nav-item">
 								<a className="nav-link" href="#">
-									Link
+									Streams
 								</a>
 							</li>
 							<li className="nav-item dropdown">
@@ -40,7 +35,7 @@ export default function AppNavbar() {
 									data-bs-toggle="dropdown"
 									aria-expanded="false"
 								>
-									Dropdown
+									Video Types
 								</a>
 								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li>
@@ -48,22 +43,7 @@ export default function AppNavbar() {
 											Action
 										</a>
 									</li>
-									<li>
-										<a className="dropdown-item" href="#">
-											Another action
-										</a>
-									</li>
-									<li>
-										<a className="dropdown-item" href="#">
-											Something else here
-										</a>
-									</li>
 								</ul>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">
-									Disabled
-								</a>
 							</li>
 						</ul>
 						<form className="d-flex">
@@ -73,10 +53,17 @@ export default function AppNavbar() {
 								placeholder="Search"
 								aria-label="Search"
 							/>
-							<button className="btn btn-outline-success" type="submit">
+							{/* <button className="btn btn-outline-success" type="submit">
 								Search
-							</button>
+							</button> */}
 						</form>
+						<ul className="navbar-nav">
+							<li className="nav-item">
+								<a className="nav-link" href="#">
+									Login | Logout
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</nav>

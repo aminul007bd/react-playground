@@ -3,32 +3,32 @@ import React from 'react'
 const firstArr = [
 	{
 		id: '1',
-		winner: 'Captain America',
+		winner: 'Captain America'
 	},
 	{
 		id: '4',
-		winner: 'Aquaman',
+		winner: 'Aquaman'
 	},
 	{
 		id: '2',
-		winner: 'Captain America',
+		winner: 'Captain America'
 	},
 	{
 		id: '3',
-		winner: 'Aquaman',
-	},
+		winner: 'Aquaman'
+	}
 ]
 
 const secondArr = [
 	{
 		id: '1',
-		winner: 'Wonder women',
+		winner: 'Wonder women'
 	},
 	{
 		id: '2',
 		winner: 'Param', //why not
-		strenths: ['fly', 'fight', 'speed'],
-	},
+		strenths: ['fly', 'fight', 'speed']
+	}
 ]
 
 const mergedArray = [...secondArr, ...firstArr]
