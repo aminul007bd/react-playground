@@ -11,6 +11,7 @@ const SearchBar = ({ searchText }) => {
 				type="search"
 				placeholder="Search"
 				aria-label="Search"
+				value={searchTerm}
 				onChange={(e) => setSearchTerm(e.target.value)}
 			/>
 		</div>
