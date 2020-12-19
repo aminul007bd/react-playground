@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Accordion from './components/Accordion'
 import AppHeader from './components/AppHeader'
 import SearchBar from './components/search/Search'
@@ -36,11 +37,19 @@ const options = [
 function App() {
 	const [onSearchText, setOnSearchText] = useState('')
 	return (
-		<div className="container-fluid">
-			<AppNavbar />
-			<AppStreamList />
-			<AppRegistration />
-		</div>
+		<Router>
+			<div>
+				<AppNavbar />
+				<Switch>
+					<Route path="/registration">
+						<AppRegistration />
+					</Route>
+				</Switch>
+			</div>
+		</Router>
+		// <div className="container-fluid">
+		// 	<AppStreamList />
+		// </div>
 	)
 }
 
