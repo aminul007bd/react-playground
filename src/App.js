@@ -3,6 +3,7 @@ import './App.css'
 import Accordion from './components/Accordion'
 import AppHeader from './components/AppHeader'
 import SearchBar from './components/search/Search'
+import AppNavbar from './components/AppNavbar'
 import SearchList from './components/search/SearchList'
 import DropDownList from './components/DropDownList'
 
@@ -34,7 +35,8 @@ function App() {
 	const [onSearchText, setOnSearchText] = useState('')
 	return (
 		<div className="App">
-			<div className="container">
+			<div className="">
+				<AppNavbar />
 				{/* <AppHeader /> */}
 				{/* <Accordion items={accordionItems} /> */}
 				{/* <SearchBar searchText={(val) => setOnSearchText(val)} />
