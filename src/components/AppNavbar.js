@@ -6,9 +6,9 @@ export default function AppNavbar() {
 		<>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid">
-					<a className="navbar-brand" href="#">
+					<Link className="navbar-brand" to="/">
 						Pantheon
-					</a>
+					</Link>
 					<button
 						className="navbar-toggler"
 						type="button"
@@ -26,12 +26,14 @@ export default function AppNavbar() {
 								<Link className="nav-link" to="/registration">
 									Registration
 								</Link>
-								{/* <a className="nav-link" href="#">
-									Streams
-								</a> */}
 							</li>
-							<li className="nav-item dropdown">
-								<a
+							<li className="nav-item">
+								<Link className="nav-link" to="/streams">
+									Streams
+								</Link>
+							</li>
+							{/* <li className="nav-item dropdown">
+								<Link
 									className="nav-link dropdown-toggle"
 									href="#"
 									id="navbarDropdown"
@@ -40,15 +42,15 @@ export default function AppNavbar() {
 									aria-expanded="false"
 								>
 									Video Types
-								</a>
+								</Link>
 								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li>
-										<a className="dropdown-item" href="#">
+										<Link className="dropdown-item" href="#">
 											Action
-										</a>
+										</Link>
 									</li>
 								</ul>
-							</li>
+							</li> */}
 						</ul>
 						<form className="d-flex">
 							<input

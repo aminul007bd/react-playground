@@ -40,11 +40,16 @@ function App() {
 		<Router>
 			<div>
 				<AppNavbar />
-				<Switch>
-					<Route path="/registration">
-						<AppRegistration />
-					</Route>
-				</Switch>
+				<div className="container-fluid">
+					<Switch>
+						<Route path="/registration">
+							<AppRegistration />
+						</Route>
+						<Route path="/streams">
+							<AppStreamList />
+						</Route>
+					</Switch>
+				</div>
 			</div>
 		</Router>
 		// <div className="container-fluid">
