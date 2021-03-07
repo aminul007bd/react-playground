@@ -39,7 +39,7 @@ function App() {
 	return (
 		<Router>
 			<div>
-				<AppNavbar />
+				<CamundaNavbar />
 				<div className="container-fluid">
 					<Switch>
 						<Route path="/registration">
@@ -52,13 +52,7 @@ function App() {
 				</div>
 			</div>
 		</Router>
-		// <div className="container-fluid">
-		// 	<AppStreamList />
-		// </div>
 	)
 }
 
 export default App
-
-// TODO : Next steps for the app
-// Registration, Login, add Stream, stream detail page
