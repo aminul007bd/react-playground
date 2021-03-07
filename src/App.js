@@ -5,6 +5,7 @@ import CamundaNavbar from './components/CamundaNavbar'
 import HomePage from './components/pages/HomePage'
 import FrameworksPage from './components/pages/FrameworksPage'
 import ModelerPage from './components/pages/ModelerPage'
+import 'bpmn-js-properties-panel/dist/assets/bpmn-js-properties-panel.css'
 
 const accordionItems = [
 	{
@@ -31,25 +32,20 @@ const options = [
 ]
 
 function App() {
-	const [onSearchText, setOnSearchText] = useState('')
 	return (
 		<Router>
-			<div>
-				<CamundaNavbar />
-				<div className="container-fluid">
-					<Switch>
-						<Route exact path="/">
-							<HomePage />
-						</Route>
-						<Route path="/modeler">
-							<ModelerPage />
-						</Route>
-						<Route path="/frameworks">
-							<FrameworksPage />
-						</Route>
-					</Switch>
-				</div>
-			</div>
+			<CamundaNavbar />
+			<Switch>
+				<Route exact path="/">
+					<HomePage />
+				</Route>
+				<Route path="/modeler">
+					<ModelerPage />
+				</Route>
+				<Route path="/frameworks">
+					<FrameworksPage />
+				</Route>
+			</Switch>
 		</Router>
 	)
 }
