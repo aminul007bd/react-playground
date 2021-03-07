@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function AppNavbar() {
+export default function CamundaNavbar() {
 	return (
 		<header>
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<nav>
 				<div className="container-fluid">
 					<Link className="navbar-brand" to="/">
 						Pantheon

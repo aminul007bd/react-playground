@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import Accordion from './components/Accordion'
-import AppHeader from './components/AppHeader'
-import SearchBar from './components/search/Search'
-import AppNavbar from './components/AppNavbar'
-import SearchList from './components/search/SearchList'
-import DropDownList from './components/DropDownList'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AppStreamList from './components/AppStreamList'
 import AppRegistration from './components/AppRegistration'
+import CamundaNavbar from './components/CamundaNavbar'
+import HomePage from './components/pages/HomePage'
+import FrameworksPage from './components/pages/FrameworksPage'
+import ModelerPage from './components/pages/ModelerPage'
 
 const accordionItems = [
 	{
@@ -42,11 +40,14 @@ function App() {
 				<CamundaNavbar />
 				<div className="container-fluid">
 					<Switch>
-						<Route path="/registration">
-							<AppRegistration />
+						<Route path="/home">
+							<HomePage />
 						</Route>
-						<Route path="/streams">
-							<AppStreamList />
+						<Route path="/framework">
+							<FrameworksPage />
+						</Route>
+						<Route path="/moduler">
+							<ModelerPage />
 						</Route>
 					</Switch>
 				</div>
