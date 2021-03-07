@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import AppStreamList from './components/AppStreamList'
-import AppRegistration from './components/AppRegistration'
 import CamundaNavbar from './components/CamundaNavbar'
 import HomePage from './components/pages/HomePage'
 import FrameworksPage from './components/pages/FrameworksPage'
@@ -40,14 +38,14 @@ function App() {
 				<CamundaNavbar />
 				<div className="container-fluid">
 					<Switch>
-						<Route path="/home">
+						<Route exact path="/">
 							<HomePage />
 						</Route>
-						<Route path="/framework">
-							<FrameworksPage />
-						</Route>
-						<Route path="/moduler">
+						<Route path="/modeler">
 							<ModelerPage />
+						</Route>
+						<Route path="/frameworks">
+							<FrameworksPage />
 						</Route>
 					</Switch>
 				</div>

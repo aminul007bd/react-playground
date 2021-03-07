@@ -28,6 +28,16 @@
   color: #61dafb;
 }
 
+
+.nav {
+  margin: 0;
+  padding: 0;
+
+  font-weight: bold;
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +45,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.nav {
+  background-color:#eee;
+}
+.nav > ul {
+  margin: 0;
+  padding: 0;
+  line-height: 48px; /* Centers text vertically */
+  list-style-type: none;
+}
+
+.nav > ul > li {
+  padding: 0 1em;
+  display: inline-block;
+
+}
+
+.nav > ul > li > a{
+  color:#aaa;
+  padding: 0 1em;
+  text-decoration: none;
+}
+
+.nav > ul > li:hover {
+  color:#fff;
+  background-color: #145cee;
 }
