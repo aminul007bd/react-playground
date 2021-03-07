@@ -35,17 +35,19 @@ function App() {
 	return (
 		<Router>
 			<CamundaNavbar />
-			<Switch>
-				<Route exact path="/">
-					<HomePage />
-				</Route>
-				<Route path="/modeler">
-					<ModelerPage />
-				</Route>
-				<Route path="/frameworks">
-					<FrameworksPage />
-				</Route>
-			</Switch>
+			<div className="app-container">
+				<Switch>
+					<Route exact path="/">
+						<HomePage />
+					</Route>
+					<Route path="/modeler">
+						<ModelerPage />
+					</Route>
+					<Route path="/frameworks">
+						<FrameworksPage />
+					</Route>
+				</Switch>
+			</div>
 		</Router>
 	)
 }
