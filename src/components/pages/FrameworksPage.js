@@ -2,21 +2,28 @@ import React, { useState, useEffect } from 'react'
 import items from './items'
 
 export default function FrameworksPage() {
-	const [data, setData] = useState(items)
+	const [data, setData] = useState([])
 	const [searchValue, setSearchValue] = useState('')
 
 	const searchItems = (value) => {
-		console.log(value)
 		setSearchValue(value)
 	}
 	useEffect(() => {
-		const result = data.filter(
-			(data) =>
-				data.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-				data.description.toLowerCase().includes(searchValue.toLowerCase())
-		)
-		setData(result)
-	}, [searchValue])
+		const timerId = setTimeout(() => {
+			const result = items.filter(
+				(data) =>
+					data.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+					data.description.toLowerCase().includes(searchValue.toLowerCase())
+			)
+			if (searchValue === null || searchValue === '') {
+				setData(items)
+			}
+			setData(result)
+		}, 1000)
+		return () => {
+			clearTimeout(timerId)
+		}
+	}, [data, searchValue])
 	return (
 		<>
 			<div>
@@ -28,12 +35,16 @@ export default function FrameworksPage() {
 					onChange={(e) => searchItems(e.target.value)}
 				/>
 			</div>
-			{data.map((item, index) => (
-				<div key={index} className="item-list-card">
-					<span className="card-title"> {item.title} </span>
-					<p> {item.description} </p>
-				</div>
-			))}
+			{data.length === 0 ? (
+				<p className="not-found">No data found</p>
+			) : (
+				data.map((item, index) => (
+					<div key={index} className="item-list-card">
+						<span className="card-title"> {item.title} </span>
+						<p> {item.description} </p>
+					</div>
+				))
+			)}
 		</>
 	)
 }
