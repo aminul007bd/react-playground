@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AppNavbar from './components/AppNavbar'
 import AppStreamList from './components/AppStreamList'
 import AiData from './data/intents.json'
+import PretrainedIntents from './components/PretrainedIntents'
 
 const accordionItems = [
 	{
@@ -39,8 +40,8 @@ function App() {
 				<AppNavbar />
 				<div className="container-fluid">
 					<Switch>
-						<Route path="/streams">
-							<AppStreamList />
+						<Route exact path="/">
+							<PretrainedIntents />
 						</Route>
 					</Switch>
 				</div>

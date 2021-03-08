@@ -43,7 +43,7 @@ let unionArray = mergedArray.filter((item) => {
 }, set)
 
 const DropDownList = ({ optionList }) => {
-	const options = optionList.map((options, index) => {
+	const options = optionList?.map((options, index) => {
 		return (
 			<option key={index} value={options.value}>
 				{options.label}
