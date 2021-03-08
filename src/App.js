@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import Accordion from './components/Accordion'
-import AppHeader from './components/AppHeader'
-import SearchBar from './components/search/Search'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AppNavbar from './components/AppNavbar'
-import SearchList from './components/search/SearchList'
-import DropDownList from './components/DropDownList'
 import AppStreamList from './components/AppStreamList'
-import AppRegistration from './components/AppRegistration'
+import AiData from './data/intents.json'
 
 const accordionItems = [
 	{
@@ -36,15 +31,14 @@ const options = [
 
 function App() {
 	const [onSearchText, setOnSearchText] = useState('')
+	const [aiData, setAiData] = useState(AiData)
+	console.log(aiData)
 	return (
 		<Router>
 			<div>
 				<AppNavbar />
 				<div className="container-fluid">
 					<Switch>
-						<Route path="/registration">
-							<AppRegistration />
-						</Route>
 						<Route path="/streams">
 							<AppStreamList />
 						</Route>
@@ -52,9 +46,6 @@ function App() {
 				</div>
 			</div>
 		</Router>
-		// <div className="container-fluid">
-		// 	<AppStreamList />
-		// </div>
 	)
 }
 
