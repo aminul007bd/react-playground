@@ -7,7 +7,7 @@ export default function AppNavbar() {
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid">
 					<Link className="navbar-brand" to="/">
-						Pantheon
+						Felmo
 					</Link>
 					<button
 						className="navbar-toggler"
