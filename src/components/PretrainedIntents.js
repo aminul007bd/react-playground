@@ -6,27 +6,19 @@ function PretrainedIntents() {
 	const [selectedIds, setSelectedIds] = useState([])
 	const [selectAll, setSelectAll] = useState(false)
 
-	console.log('selected ids: ', selectedIds)
+	const SelectBtnText = selectAll ? 'Deselect All' : 'Select All'
 
-	const topRow = () => {
-		return (
-			<div className="row">
-				<div className="col-xs-6">
-					<h3>{`Total selected: ${selectedIds.length}`}</h3>
-				</div>
-				<div className="col-xs-6">
-					<button className="btn btn-outline-secondary">Select All</button>
-				</div>
-			</div>
-		)
-	}
-
-	const selectAllIntents = () => {
+	const ToggleSelect = () => {
 		const allIds = appData.map((intents) => {
 			return intents.id
 		})
-		console.log('all ids', allIds)
-		setSelectedIds(...selectedIds, allIds)
+		if (!selectAll) {
+			setSelectAll(true)
+			setSelectedIds(...selectedIds, allIds)
+		} else {
+			setSelectAll(false)
+			setSelectedIds([])
+		}
 	}
 
 	const intentsData = appData.map((intents) => {
@@ -42,7 +34,8 @@ function PretrainedIntents() {
 
 		return (
 			<div className="list-group mb-1" key={intents.id}>
-				<Link
+				<button
+					type="button"
 					className={`list-group-item list-group-item-action ${isRowSelected}`}
 					to="#"
 					onClick={() => onToggle(intents.id)}
@@ -59,25 +52,27 @@ function PretrainedIntents() {
 
 					<p className="mb-0">{intents.description}</p>
 					<small>{intents.reply.text}</small>
-				</Link>
+				</button>
 			</div>
 		)
 	})
 	return (
 		<>
-			<div className="row">
-				<div className="row">
+			<div className="container-fluid">
+				<div className="row justify-content-md-center">
 					<div className="col-xs-6">
 						<h3>{`Total selected: ${selectedIds.length}`}</h3>
 					</div>
 					<div className="col-xs-6">
-						<button className="btn btn-outline-secondary" onClick={selectAllIntents}>
-							Select All
+						<button className="btn btn-outline-secondary" onClick={ToggleSelect}>
+							{SelectBtnText}
 						</button>
 					</div>
 				</div>
+				<div className="row justify-content-md-center">
+					<div className="col-xs-6">{intentsData}</div>
+				</div>
 			</div>
-			<div className="row">{intentsData}</div>
 		</>
 	)
 }
