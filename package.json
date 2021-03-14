@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^7.0.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-config-react-app": "6.0.0",
     "eslint-plugin-flowtype": "5.2.0",
     "eslint-plugin-import": "2.22.0",
