@@ -19,7 +19,10 @@ function PretrainedIntents() {
 			setSelectedIds([])
 		}
 	}
-
+	const removeSlectedIntents = (id) => {
+		const removedId = selectedIds.filter((item) => item !== id)
+		setSelectedIds(removedId)
+	}
 	const intentsData = appData.map((intents) => {
 		const onToggle = (id) => {
 			if (selectedIds.includes(id)) {
@@ -29,6 +32,7 @@ function PretrainedIntents() {
 				setSelectedIds([...selectedIds, id])
 			}
 		}
+
 		const isRowSelected = selectedIds.includes(intents.id) ? 'active' : ''
 
 		return (
@@ -43,11 +47,14 @@ function PretrainedIntents() {
 						<h5 className="mb-1">{intents.name}</h5>
 						<small>{intents.trainingData.expressionCount}</small>
 					</div>
-					{intents.trainingData.expressions.map((expression) => (
-						<span key={expression.id} className="badge badge-info mr-1">
-							{expression.text}
-						</span>
-					))}
+					<p>
+						Expressions :
+						{intents.trainingData.expressions.map((expression) => (
+							<span key={expression.id} className="badge badge-info mr-1">
+								{expression.text}
+							</span>
+						))}
+					</p>
 
 					<p className="mb-0">{intents.description}</p>
 					<small>{intents.reply.text}</small>
@@ -69,7 +76,27 @@ function PretrainedIntents() {
 					</div>
 				</div>
 				<div className="row justify-content-md-center mt-4">
-					<div className="col-xs-6">{intentsData}</div>
+					<div className="col-xs-4 mr-4">{intentsData}</div>
+					<div className="col-xs-4">
+						{appData
+							.filter((item) => selectedIds.includes(item.id))
+							.map((intents) => {
+								return (
+									<div className="alert alert-info" key={intents.id} style={{ minWidth: '400px' }}>
+										<strong className="mr-auto">{intents.name}</strong>
+										<button
+											type="button"
+											className="ml-2 mb-1 close"
+											data-dismiss="toast"
+											aria-label="Close"
+											onClick={() => removeSlectedIntents(intents.id)}
+										>
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+								)
+							})}
+					</div>
 				</div>
 			</div>
 		</>
