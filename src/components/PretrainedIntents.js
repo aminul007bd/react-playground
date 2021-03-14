@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import appData from '../data/intents.json'
-import { Link } from 'react-router-dom'
 
 function PretrainedIntents() {
 	const [selectedIds, setSelectedIds] = useState([])
@@ -14,7 +13,7 @@ function PretrainedIntents() {
 		})
 		if (!selectAll) {
 			setSelectAll(true)
-			setSelectedIds(...selectedIds, allIds)
+			setSelectedIds(allIds)
 		} else {
 			setSelectAll(false)
 			setSelectedIds([])
@@ -45,7 +44,7 @@ function PretrainedIntents() {
 						<small>{intents.trainingData.expressionCount}</small>
 					</div>
 					{intents.trainingData.expressions.map((expression) => (
-						<span key={expression.id} className="badge badge-secondary mr-1">
+						<span key={expression.id} className="badge badge-info mr-1">
 							{expression.text}
 						</span>
 					))}
@@ -58,18 +57,18 @@ function PretrainedIntents() {
 	})
 	return (
 		<>
-			<div className="container-fluid">
+			<div className="container-fluid mt-4">
 				<div className="row justify-content-md-center">
 					<div className="col-xs-6">
-						<h3>{`Total selected: ${selectedIds.length}`}</h3>
+						<h3>{`Total selected:   ${selectedIds.length}`}</h3>
 					</div>
-					<div className="col-xs-6">
-						<button className="btn btn-outline-secondary" onClick={ToggleSelect}>
+					<div className="col-xs-6 ml-4">
+						<button className="btn btn-outline-info" onClick={ToggleSelect}>
 							{SelectBtnText}
 						</button>
 					</div>
 				</div>
-				<div className="row justify-content-md-center">
+				<div className="row justify-content-md-center mt-4">
 					<div className="col-xs-6">{intentsData}</div>
 				</div>
 			</div>
