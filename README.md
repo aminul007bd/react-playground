@@ -32,4 +32,4 @@ lint [eslint add](https://morioh.com/p/5fd9a1794ed3).
 
 eslint --init
 npx install-peerdeps --dev eslint-config-react-app
-yarn add -D eslint-config-prettier eslint-plugin-prettier prettier 
+yarn add -D eslint-config-prettier eslint-plugin-prettier prettier

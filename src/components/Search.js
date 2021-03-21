@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
 const Search = (props) => {
-	const [searchValue, setSearchValue] = useState('')
+	const [searchValue, setSearchValue] = useState("")
 
 	const handleSearchInputChanges = (e) => {
 		setSearchValue(e.target.value)
 	}
 	const resetInputField = () => {
-		setSearchValue('')
+		setSearchValue("")
 	}
 	const callSearchFunction = (e) => {
 		e.preventDefault()
