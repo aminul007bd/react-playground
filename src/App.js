@@ -6,15 +6,16 @@ import { expenses } from './data/AppData'
 
 function App() {
 	const [expenseItems, setExpenseItems] = useState(expenses)
-	console.log('expense items', expenseItems.length)
+	const [expenseFromData, setExpenseFormData] = useState()
+	console.log('expense items', expenseItems)
 	return (
 		<div className="App">
 			<div className="container">
 				<div className="col-sm-12">
 					<NewExpense
-						onExpenseFormSubmit={(formData) =>
+						onNewExpanseSubmit={(data) =>
 							setExpenseItems((prevState) => {
-								return { ...prevState, formData }
+								return [...prevState, data]
 							})
 						}
 					/>

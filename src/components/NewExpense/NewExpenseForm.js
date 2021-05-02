@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const NewExpenseForm = ({ onExpenseFormSubmit }) => {
 	const [expenseForm, setExpenseForm] = useState({
+		id: '',
 		title: '',
 		amount: '',
 		date: '',
@@ -9,15 +10,20 @@ const NewExpenseForm = ({ onExpenseFormSubmit }) => {
 
 	const submitHandler = (event) => {
 		event.preventDefault()
-		onExpenseFormSubmit = expenseForm
+		onExpenseFormSubmit(expenseForm)
+		setExpenseForm({
+			title: '',
+			amount: '',
+			date: '',
+		})
 	}
-	console.log('this is the form value', expenseForm)
 	return (
 		<form className="mt-4" onSubmit={submitHandler}>
 			<div className="form-group mr-2">
 				<input
 					type="text"
 					className="form-control"
+					value={expenseForm.title}
 					placeholder="Title"
 					onChange={(e) =>
 						setExpenseForm((prevState) => {
@@ -31,6 +37,7 @@ const NewExpenseForm = ({ onExpenseFormSubmit }) => {
 					type="number"
 					min="0.1"
 					step="0.1"
+					value={expenseForm.amount}
 					className="form-control"
 					placeholder="Amount"
 					onChange={(e) =>
@@ -45,10 +52,11 @@ const NewExpenseForm = ({ onExpenseFormSubmit }) => {
 					type="date"
 					min="2019-01-01"
 					max="2022-01-01"
+					value={expenseForm.date}
 					className="form-control"
 					onChange={(e) =>
 						setExpenseForm((prevState) => {
-							return { ...prevState, date: e.target.value }
+							return { ...prevState, date: new Date(e.target.value) }
 						})
 					}
 				/>
