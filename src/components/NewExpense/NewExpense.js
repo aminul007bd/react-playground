@@ -5,6 +5,7 @@ const NewExpense = ({ onNewExpanseSubmit }) => {
 	const onDataSubmit = (data) => {
 		const expenseData = {
 			...data,
+			date: new Date(data.date),
 			id: Math.random().toString(),
 		}
 		onNewExpanseSubmit(expenseData)

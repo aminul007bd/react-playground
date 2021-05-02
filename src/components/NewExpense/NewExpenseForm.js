@@ -24,6 +24,7 @@ const NewExpenseForm = ({ onExpenseFormSubmit }) => {
 					type="text"
 					className="form-control"
 					value={expenseForm.title}
+					required
 					placeholder="Title"
 					onChange={(e) =>
 						setExpenseForm((prevState) => {
@@ -40,6 +41,7 @@ const NewExpenseForm = ({ onExpenseFormSubmit }) => {
 					value={expenseForm.amount}
 					className="form-control"
 					placeholder="Amount"
+					required
 					onChange={(e) =>
 						setExpenseForm((prevState) => {
 							return { ...prevState, amount: e.target.value }
@@ -56,7 +58,7 @@ const NewExpenseForm = ({ onExpenseFormSubmit }) => {
 					className="form-control"
 					onChange={(e) =>
 						setExpenseForm((prevState) => {
-							return { ...prevState, date: new Date(e.target.value) }
+							return { ...prevState, date: e.target.value }
 						})
 					}
 				/>
