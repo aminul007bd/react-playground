@@ -1,15 +1,13 @@
 import React from 'react'
 import './App.css'
-import AppFooter from './components/AppFooter'
-import AppHeader from './components/AppHeader'
+import Expenses from './components/Expenses/Expense'
+import { expenses } from './data/AppData'
 
 function App() {
 	return (
 		<div className="App">
 			<div className="container">
-				<h2>React Playground</h2>
-				<AppHeader />
-				<AppFooter />
+				<Expenses items={expenses} />
 			</div>
 		</div>
 	)
