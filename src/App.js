@@ -6,8 +6,6 @@ import { expenses } from './data/AppData'
 
 function App() {
 	const [expenseItems, setExpenseItems] = useState(expenses)
-	const [expenseFromData, setExpenseFormData] = useState()
-	console.log('expense items', expenseItems)
 	return (
 		<div className="App">
 			<div className="container">
