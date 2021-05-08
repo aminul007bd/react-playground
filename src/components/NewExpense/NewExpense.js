@@ -5,11 +5,11 @@ const NewExpense = ({ onNewExpanseSubmit }) => {
 	const onDataSubmit = (data) => {
 		const expenseData = {
 			...data,
-			date: new Date(data.date),
 			id: Math.random().toString(),
+			amount: +data.amount,
+			date: new Date(data.date),
 		}
 		onNewExpanseSubmit(expenseData)
-		console.log('my expense data', expenseData)
 	}
 	return <NewExpenseForm onExpenseFormSubmit={onDataSubmit} />
 }
