@@ -11,11 +11,7 @@ const NewExpense = ({ onNewExpanseSubmit }) => {
 		onNewExpanseSubmit(expenseData)
 		console.log('my expense data', expenseData)
 	}
-	return (
-		<div>
-			<NewExpenseForm onExpenseFormSubmit={onDataSubmit} />
-		</div>
-	)
+	return <NewExpenseForm onExpenseFormSubmit={onDataSubmit} />
 }
 
 export default NewExpense
