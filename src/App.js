@@ -5,39 +5,24 @@ import AddUser from './components/Users/AddUser'
 import UsersList from './components/Users/UsersList'
 
 const App = () => {
-	const [courseGoals, setCourseGoals] = useState([
-		{ text: 'Do all exercises!', id: 'g1' },
-		{ text: 'Finish the course!', id: 'g2' },
+	const [usersList, setUsersList] = useState([
+		{ name: 'Max', age: '31' },
+		{ name: 'Mad Max', age: '35' },
 	])
 
-	// const addGoalHandler = (enteredText) => {
-	// 	setCourseGoals((prevGoals) => {
-	// 		const updatedGoals = [...prevGoals]
-	// 		updatedGoals.unshift({ text: enteredText, id: Math.random().toString() })
-	// 		return updatedGoals
-	// 	})
-	// }
-
-	// const deleteItemHandler = (goalId) => {
-	// 	setCourseGoals((prevGoals) => {
-	// 		const updatedGoals = prevGoals.filter((goal) => goal.id !== goalId)
-	// 		return updatedGoals
-	// 	})
-	// }
-
-	// let content = `<p>No goals found. Maybe add one?</p>`
-
-	// if (courseGoals.length > 0) {
-	// 	content = <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
-	// }
+	const addUserHandler = (uName, uAge) => {
+		setUsersList((prevUser) => {
+			return [...prevUser, { name: uName, age: uAge }]
+		})
+	}
 
 	return (
 		<div>
 			<section id="add-user-form">
-				<AddUser />
+				<AddUser onUserAdd={addUserHandler} />
 			</section>
 			<section id="users">
-				<UsersList users={[]} />
+				<UsersList users={usersList} />
 			</section>
 		</div>
 	)
