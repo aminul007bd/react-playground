@@ -15,7 +15,7 @@ const AddUser = (props) => {
 
 	const addUserHandler = (event) => {
 		event.preventDefault()
-		console.log(nameInputRef.current.value, ageInputRef.current.value)
+		console.log(nameInputRef.current.value, ageInputRef.current)
 		if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
 			setError({
 				title: 'Invalid input',
