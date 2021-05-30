@@ -1,8 +1,8 @@
+import Card from '../../UI/Card/Card'
+import DUMMY_MEALS from '../../../data/dummy-meals.js'
+import MealItem from '../MealItem/MealItem'
 import React from 'react'
 import classes from './AvailableMeals.module.css'
-import DUMMY_MEALS from '../../../data/dummy-meals.js'
-import Card from '../../UI/Card/Card'
-import MealItem from '../MealItem/MealItem'
 
 const AvailableMeals = () => {
 	const mealList = DUMMY_MEALS.map((meal) => (

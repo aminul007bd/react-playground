@@ -1,5 +1,5 @@
-import React from 'react'
 import MealItemForm from '../MealItemForm/MealItemForm'
+import React from 'react'
 import classes from './MealItem.module.css'
 
 const MealItem = (props) => {
