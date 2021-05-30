@@ -1,15 +1,26 @@
 import './App.css'
 
+import React, { useState } from 'react'
+
 import Cart from './components/Cart/Cart'
 import Header from './components/Layout/Header'
 import Meals from './components/Meals/Meals'
-import React from 'react'
 
 function App() {
+	const [cartIsShow, setCartIsShow] = useState(false)
+
+	const showCartHandler = () => {
+		setCartIsShow(true)
+	}
+
+	const hideCartHandler = () => {
+		setCartIsShow(false)
+	}
+
 	return (
 		<div className="App">
-			<Header />
-			<Cart />
+			<Header onShowCart={showCartHandler} />
+			{cartIsShow && <Cart onClose={hideCartHandler} />}
 			<main>
 				<Meals />
 			</main>
